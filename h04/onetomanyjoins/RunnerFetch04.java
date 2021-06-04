@@ -121,20 +121,24 @@ public class RunnerFetch04 {
 			session.delete(session.get(Students04.class,w.getStd_id()));
 		}
 		
+		//How to update data by using Hibernate
+		
+		//7:Update the name the student whose id is 11 to Mark Stone 
+		
+		String hql6="Update s.name from Students04 set s.name='Mark Stone' where s.std_id=11";
+		int numberofUpdatedRec6=session.createQuery(hql6).executeUpdate();
+		
+		System.out.println("number of update rows"+ numberofUpdatedRec6);
 		
 		
+		//8:Update the grades of students to 12 whose grade are grader than 8.
+		String hql7="Update Students04 s set s.grade=12 where a.grade>8";
+		int numberofUpdatedRec8=session.createQuery(hql7).executeUpdate();
+		System.out.println("number of update rows"+ numberofUpdatedRec8);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-
 		
 		tx.commit();
+		session.close();
 		
 	
 	
